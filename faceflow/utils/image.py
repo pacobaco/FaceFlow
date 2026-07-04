@@ -1,0 +1,9 @@
+import cv2
+import numpy as np
+
+def ensure_rgb(image):
+    if len(image.shape) == 2:
+        return cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+    if image.shape[2] == 4:
+        return cv2.cvtColor(image, cv2.COLOR_BGRA2RGB)
+    return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
